@@ -13,7 +13,6 @@ public class AppleStockCount {
       double total = 0;
       StringBuilder message = new StringBuilder();
 
-      System.out.println(qty%12);
       if (qty < 1) {
           System.out.println("Out of stock.");
       } else if(qty/12 > 0){
@@ -26,7 +25,10 @@ public class AppleStockCount {
             message.append(qty%12);
           }
           
-        message.append(" apples");  
+        message.append(" apple");
+        if(qty%12 > 1){
+          message.append("s");
+        }  
         message.append(" for a total cost of ");
         if(qty/12 == 3){
           total = qty * cost - 24;
